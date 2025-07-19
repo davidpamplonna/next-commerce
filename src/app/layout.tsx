@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/NavBar";
+import clsx from "clsx";
 
 
 const inter = Inter({
@@ -22,12 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable}`}>
+    <html lang="pt-BR">
       <body
-        className={`${inter.variable}`}
+        className={clsx (inter.className, 'bg-slate-700')}
       >
         <Navbar />
-        <main className="bg-slate-700 h-screen p-16">
+        <main className="h-screen p-16">
           {children}
         </main>
       </body>
