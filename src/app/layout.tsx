@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/NavBar";
 import clsx from "clsx";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ptBR } from '@clerk/localizations'
 
 
 const inter = Inter({
@@ -23,7 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <ClerkProvider localization={ptBR}>
+      <html lang="pt-BR">
       <body
         className={clsx (inter.className, 'bg-slate-700')}
       >
@@ -33,5 +36,6 @@ export default function RootLayout({
         </main>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
